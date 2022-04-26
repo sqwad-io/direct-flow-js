@@ -6,7 +6,7 @@ const isProduction = process.env.NODE_ENV === 'production';
 
 
 const config = {
-    entry: './src/index.ts',
+    entry: './browser.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
     },
@@ -16,11 +16,11 @@ const config = {
     ],
     module: {
         rules: [
-            {
-                test: /\.(ts|tsx)$/i,
-                loader: 'ts-loader',
-                exclude: ['/node_modules/'],
-            },
+            // {
+            //     test: /\.(ts|tsx)$/i,
+            //     loader: 'ts-loader',
+            //     exclude: ['/node_modules/'],
+            // },
             {
                 test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
                 type: 'asset',

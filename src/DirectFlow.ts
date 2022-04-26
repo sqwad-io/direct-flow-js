@@ -24,7 +24,7 @@ export class DirectFlow {
             throw 'Namespace or API Key not set !'
         }
 
-        this.socket = io(`${secure ? 'https' : 'http'}://${server ?? 'localhost:3000'}/${namespace}/${apiKey}`)
+        this.socket = io(`${secure ? 'https' : 'http'}://${server ?? 'flow.sqwad.io'}/${namespace}/${apiKey}`)
 
         this.socket.on('restart', () => {
             try {

@@ -2,52 +2,45 @@
 
 Instant bidirectional interactions made easy !
 
-
 *Note: we use socket.io library for client layer with auto-reconnect and webRTC / Long polling usage.*
 
 The library is coded on typescript so all types are defined, except for custom ones.
 
-## Old fashioned web import and use
+## CDN Use
 
 ```html
-
-<script src="//cdn.jsdelivr.net/npm/socket.io-client@4.4.1/dist/socket.io.min.js"></script>
-<script src="//sqwad.io//dist/main.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/@sqwad/direct-flow" crossorigin="anonymous"></script>
 <script>
-    const c = new DirectFlow('your-uuid', 'client-key', true, 'sqwad.io', true)
+  const d = new DirectFlow('your-uuid', 'client-key')
 
-    c.broadcast({
-        foo: 'bar'
-    })
+  d.broadcast('Hello world')
 
-    function onMessage(message) {
-        console.log(message)
-    }
-
-    c.onMessage(onMessage)
+  d.onMessage((message) => {
+    console.log(message)
+  })
 </script>
 ```
 
 ## Installation
 
 ```shell
-yarn add @sqwad-io/client
+yarn add @sqwad/direct-flow
 ```
 
 or
 
 ```shell
-npm install @sqwad-io/client
+npm install @sqwad/direct-flow
 ```
 
 ### Javascript Usage
 
 ```html
-<script type="module">
-    import {DirectFlow} from './@sqwad-io/client/lib'
 
-    const d = new DirectFlow('your-uuid', 'client-key', true, 'sqwad.io', true)
+<script type="module">
+    import {DirectFlow} from '@sqwad/direct-flow'
+
+    const d = new DirectFlow('your-uuid', 'client-key')
 
     d.broadcast('Hello world')
 
@@ -57,42 +50,22 @@ npm install @sqwad-io/client
 </script>
 ```
 
-### Typescript Usage
-
-```typescript
-import { DirectFlow } from '@sqwad-io/client/src'
-
-const d = new DirectFlow('your-uuid', 'client-key', 'sqwad.io', true)
-
-d.broadcast('Hello world')
-
-d.onMessage((message) => {
-    console.log(message)
-})
-```
-
 ### Event driven usage
 
+```html
 
-```typescript
-import { DirectFlow } from '@sqwad-io/client/src'
+<script type="module">
+    import {DirectFlow} from '@sqwad/direct-flow'
 
-const d = new DirectFlow('your-uuid', 'client-key', 'sqwad.io', true)
+    const d = new DirectFlow('your-uuid', 'client-key')
 
-d.broadcast('Hello world')
+    d.broadcast('Hello world')
 
-// Instantiate all event dispatchers
-d.onMessage()
+    // Instantiate all event dispatchers
+    d.onMessage()
 
-const subscriber = addEventListener(DirectFlowEventType.GLOBAL, (message) => console.log(message))
-
-//
-// your code... //
-//
-
-const destroyThisSubscriber = () => {
-    removeEventListener(subscriber)
-} 
+    addEventListener(DirectFlowEventType.GLOBAL, (message) => console.log(message))
+</script>
 ```
 
 ## Methods
