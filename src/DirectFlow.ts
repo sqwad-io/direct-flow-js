@@ -1,9 +1,8 @@
 import { io } from 'socket.io-client'
-import { Socket } from 'socket.io-client/build/esm/socket'
 import { DirectFlowEventType, DirectFlowMessageModel } from './models'
 
 export class DirectFlow {
-    public socket!: Socket
+    public socket!: any
 
     private static instance: DirectFlow | null = null
 
@@ -11,12 +10,13 @@ export class DirectFlow {
      *
      * @param namespace UUID of your namespace
      * @param apiKey Your API Key from dashboard
+     * @param singleInstance do we need a single socket instance or not
      * @param server optional, server location
      * @param secure define if we should use http or https
      */
-    constructor(namespace: string, apiKey: string, server: string | null = null, secure: boolean = false) {
+    constructor(namespace: string, apiKey: string, singleInstance: boolean, server: string | null = null, secure: boolean = false) {
         // Ensure class is instanced once (we don't need multiple sockets)
-        if (DirectFlow.instance !== null) {
+        if (DirectFlow.instance !== null && singleInstance) {
             return DirectFlow.instance
         }
 
@@ -32,11 +32,12 @@ export class DirectFlow {
             } catch (e) {
                 //
             }
-
             this.connect()
         })
 
-        DirectFlow.instance = this
+        if (singleInstance) {
+            DirectFlow.instance = this
+        }
     }
 
     release() {
@@ -127,7 +128,7 @@ export class DirectFlow {
      * @param listener
      */
     onMessage(listener?: (payload: DirectFlowMessageModel) => void) {
-        this.socket.on('message', (payload) => {
+        this.socket.on('message', (payload: DirectFlowMessageModel) => {
             if (payload.to) {
                 dispatchEvent(
                     new CustomEvent(DirectFlowEventType.DIRECT, {

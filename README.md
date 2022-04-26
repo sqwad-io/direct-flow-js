@@ -12,10 +12,10 @@ The library is coded on typescript so all types are defined, except for custom o
 ```html
 
 <script src="//cdn.jsdelivr.net/npm/socket.io-client@4.4.1/dist/socket.io.min.js"></script>
-<script src="//sqwad.io/path/to/library/lib/index.js"></script>
+<script src="//sqwad.io//dist/main.js"></script>
 
 <script>
-    const c = new DirectFlow('your-uuid', 'client-key', 'sqwad.io', true)
+    const c = new DirectFlow('your-uuid', 'client-key', true, 'sqwad.io', true)
 
     c.broadcast({
         foo: 'bar'
@@ -47,7 +47,7 @@ npm install @sqwad-io/client
 <script type="module">
     import {DirectFlow} from './@sqwad-io/client/lib'
 
-    const d = new DirectFlow('your-uuid', 'client-key', 'sqwad.io', true)
+    const d = new DirectFlow('your-uuid', 'client-key', true, 'sqwad.io', true)
 
     d.broadcast('Hello world')
 
