@@ -16,6 +16,6 @@
   "scripts": {
     "build": "tsc",
     "watch": "tsc --watch",
-    "publish": "npm publish --access public"
+    "pub": "npm publish --access public"
   }
 }
