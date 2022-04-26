@@ -116,10 +116,10 @@ export class DirectFlow {
     unsubscribe(channel: string | string[]) {
         if (typeof channel === 'object') {
             for (const c of channel) {
-                this.socket.emit('subscribe', {channel: c})
+                this.socket.emit('unsubscribe', {channel: c})
             }
         } else {
-            this.socket.emit('subscribe', {channel})
+            this.socket.emit('unsubscribe', {channel})
         }
     }
 
