@@ -1,5 +1,5 @@
 {
-  "name": "sqwad-direct-flow-client",
+  "name": "@sqwad/direct-flow",
   "version": "1.0.0",
   "description": "Direct Flow Client",
   "author": "Nicolas Guillard",
@@ -11,7 +11,7 @@
     "socket.io-client": "^4.4.1"
   },
   "scripts": {
-    "build": "tsc && parcel build",
+    "build": "tsc",
     "watch": "parcel watch"
   }
 }
