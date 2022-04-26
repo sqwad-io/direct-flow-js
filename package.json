@@ -1,0 +1,17 @@
+{
+  "name": "sqwad-direct-flow-client",
+  "version": "1.0.0",
+  "description": "Direct Flow Client",
+  "author": "Nicolas Guillard",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^4.6.3"
+  },
+  "dependencies": {
+    "socket.io-client": "^4.4.1"
+  },
+  "scripts": {
+    "build": "tsc && parcel build",
+    "watch": "parcel watch"
+  }
+}
