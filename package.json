@@ -4,6 +4,9 @@
   "description": "Direct Flow Client",
   "author": "Nicolas Guillard",
   "license": "MIT",
+  "private": false,
+  "repository": "https://github.com/sqwad-io/direct-flow-js",
+  "homepage": "https://sqwad.io/direct-flow",
   "devDependencies": {
     "typescript": "^4.6.3"
   },
@@ -12,6 +15,7 @@
   },
   "scripts": {
     "build": "tsc",
-    "watch": "parcel watch"
+    "watch": "tsc --watch",
+    "publish": "npm publish --access public"
   }
 }
