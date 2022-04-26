@@ -1,8 +1,8 @@
-import { io } from 'socket.io-client'
+import { io, Socket } from 'socket.io-client'
 import { DirectFlowEventType, DirectFlowMessageModel } from './models'
 
 export class DirectFlow {
-    public socket!: any
+    public socket!: Socket
 
     private static instance: DirectFlow | null = null
 
@@ -162,13 +162,5 @@ export class DirectFlow {
      */
     connect() {
         this.socket.connect()
-    }
-
-    on() {
-        return this.socket.on
-    }
-
-    off() {
-        return this.socket.off
     }
 }

@@ -97,14 +97,14 @@ const destroyThisSubscriber = () => {
 
 ## Methods
 
-- connect : connect to server (not needed, connected in constructor)
-- release : disconnect from server
-- broadcast : send message to anyone **except us** (can be string or object)
-- send : broadcast alias
-- sendTo : send to specific client
-- sendToChannel : send to channel on server (can be string or object)
-- rawSend : send any data to server, but need to be an object
-- subscribe : listen to one or more specific channel (string or object)
-- unsubscribe : stop listening for one or more specific channel (string or object)
-- onMessage : action to do when receiving message, parameter is optional and instantiate event dispatchers, you should
+- connect: connect to server (not needed, connected in constructor)
+- release: disconnect from server
+- broadcast: send message to anyone **except us** (can be string or object)
+- send: broadcast alias
+- sendTo: send to specific client
+- sendToChannel: send to channel on server (can be string or object)
+- rawSend: send any data to server, but need to be an object
+- subscribe: listen to one or more specific channel (string or object)
+- unsubscribe: stop listening for one or more specific channel (string or object)
+- onMessage: action to do when receiving message, parameter is optional and instantiate event dispatchers, you should
   call once only.
