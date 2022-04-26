@@ -14,7 +14,7 @@ export class DirectFlow {
      * @param server optional, server location
      * @param secure define if we should use http or https
      */
-    constructor(namespace: string, apiKey: string, singleInstance: boolean, server: string | null = null, secure: boolean = false) {
+    constructor(namespace: string, apiKey: string, singleInstance: boolean = true, server: string | null = null, secure: boolean = false) {
         // Ensure class is instanced once (we don't need multiple sockets)
         if (DirectFlow.instance !== null && singleInstance) {
             return DirectFlow.instance
