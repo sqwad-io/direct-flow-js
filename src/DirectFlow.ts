@@ -1,5 +1,5 @@
-import { io, Socket } from 'socket.io-client'
-import { DirectFlowEventType, DirectFlowMessageModel } from './models'
+import {io, Socket} from 'socket.io-client'
+import {DirectFlowEventType, DirectFlowMessageModel} from './models'
 
 export class DirectFlow {
     public socket!: Socket
@@ -21,7 +21,7 @@ export class DirectFlow {
         }
 
         if (!namespace || !apiKey) {
-            throw 'Namespace or API Key not set !'
+            throw new Error('Namespace or API Key not set !')
         }
 
         this.socket = io(`${secure ? 'https' : 'http'}://${server ?? 'flow.sqwad.io'}/${namespace}/${apiKey}`)
