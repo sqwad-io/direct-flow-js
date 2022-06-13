@@ -2,7 +2,7 @@
 
 Instant bidirectional interactions made easy !
 
-*Note: we use socket.io library for client layer with auto-reconnect and webRTC / Long polling usage.*
+*Note: we use socket.io library for client layer with auto-reconnect and WebSocket / Long polling usage.*
 
 The library is coded on typescript so all types are defined, except for custom ones.
 
