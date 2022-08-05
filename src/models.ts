@@ -13,6 +13,6 @@ export interface DirectFlowMessageModel {
 
 export enum DirectFlowEventType {
     DIRECT = 'DirectFlowDirectMessage',
-    CHANNEL = 'DirectFlowChannelMessage_',
+    CHANNEL = 'DirectFlowChannelMessage',
     GLOBAL = 'DirectFlowGlobalMessage'
 }
